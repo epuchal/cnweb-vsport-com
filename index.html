@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v体育 · 站点介绍与可信说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f4f6;
+      color: #1e2024;
+      line-height: 1.6;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 12px 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      border: 1px solid #e6eaef;
+      margin-bottom: 40px;
+    }
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      color: #0b1c2f;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 0.95rem;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #1d6f9c;
+    }
+    .nav-links a:first-child {
+      margin-left: 0;
+    }
+
+    /* hero / 引言 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px 36px;
+      margin-bottom: 36px;
+      border: 1px solid #e3e9ef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 540;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+      color: #0d1d2e;
+    }
+    .hero p {
+      color: #3b4a5a;
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-size: 1.02rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #eaf0f6;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #1f3f57;
+    }
+
+    /* 通用卡片区域 */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 480;
+      margin: 36px 0 20px 0;
+      color: #141b24;
+    }
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 24px;
+      flex: 1 1 280px;
+      border: 1px solid #e1e7ed;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+    }
+    .card h3 {
+      font-weight: 520;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #0a1a2b;
+    }
+    .card p {
+      color: #3c4c5c;
+      font-size: 0.96rem;
+    }
+    .card .badge {
+      display: inline-block;
+      background: #eef3f9;
+      font-size: 0.75rem;
+      padding: 2px 12px;
+      border-radius: 40px;
+      margin-top: 12px;
+      color: #1d4b68;
+    }
+
+    /* 场景模块 —— 三个卡片式场景 */
+    .scene-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px 0 36px;
+    }
+    .scene-item {
+      flex: 1 1 280px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1px solid #e2e8ef;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .scene-item h4 {
+      font-weight: 520;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: #0b1e30;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .scene-item p {
+      color: #3b4a5a;
+      font-size: 0.94rem;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 32px;
+      border: 1px solid #e3e9ef;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      margin: 28px 0 24px;
+    }
+    .faq-block h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: #0b1c2d;
+    }
+    .faq-item {
+      margin-bottom: 18px;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 530;
+      color: #0d2136;
+      margin-bottom: 4px;
+    }
+    .faq-item p {
+      color: #3d4d5e;
+      font-size: 0.96rem;
+      margin-left: 0;
+    }
+
+    /* 句子内链接 */
+    .inline-link {
+      color: #1a6b93;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .inline-link:hover {
+      border-bottom-color: #1a6b93;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6e7e8e;
+      border-top: 1px solid #dae0e7;
+      padding-top: 28px;
+      margin-top: 20px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 20px;
+      }
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 20px;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero {
+        padding: 28px 20px;
+      }
+      .faq-block {
+        padding: 20px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="nav-brand">v体育 · 站点导航</span>
+    <div class="nav-links">
+      <a href="#intro">介绍</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero / 核心介绍 -->
+  <div class="hero" id="intro">
+    <h1>关于 <span style="font-weight:540;">v体育</span> 的可信说明</h1>
+    <p>
+      <a href="https://cnweb-vsport.com" class="inline-link">v体育</a> 
+      是面向体育资讯与数据服务的站点，提供赛事动态、统计摘要及内容整合。
+      本页围绕站点背景、使用场景与常见疑问进行概要说明，帮助浏览者建立清晰认知。
+    </p>
+    <span class="tagline">信息密度 · 轻量导航</span>
+  </div>
+
+  <!-- 站点特点 / 介绍卡片 -->
+  <h2 class="section-title">站点特点</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>内容结构</h3>
+      <p>
+        模块化分类：赛事回顾、数据简讯、专题梳理。页面以卡片式分区呈现，便于快速定位关注内容。
+      </p>
+      <span class="badge">结构化</span>
+    </div>
+    <div class="card">
+      <h3>信息可信</h3>
+      <p>
+        团队持续维护内容来源标注，避免夸大表述。站内引用均保留可查线索，保持专业与克制。
+      </p>
+      <span class="badge">可溯性</span>
+    </div>
+    <div class="card">
+      <h3>浏览适配</h3>
+      <p>
+        针对移动设备与桌面均进行布局优化，减少冗余元素，专注内容本身。页面加载速度优先。
+      </p>
+      <span class="badge">轻量化</span>
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title" id="scenes">典型使用场景</h2>
+  <div class="scene-wrapper">
+    <div class="scene-item">
+      <h4>⚬ 快速查阅</h4>
+      <p>需要了解近期体育赛事信息时，可通过 <a href="https://cnweb-vsport.com" class="inline-link">v体育</a> 的聚合简讯获取概览，节省逐条搜索的时间。</p>
+    </div>
+    <div class="scene-item">
+      <h4>⚬ 数据参考</h4>
+      <p>站点提供经过整理的统计摘要，适合业余分析或内容创作者作为基础素材参考，但不宜直接作为唯一决策依据。</p>
+    </div>
+    <div class="scene-item">
+      <h4>⚬ 背景了解</h4>
+      <p>对于不熟悉的赛事或队伍，可借助专题页面了解基础背景、历史记录和常规数据，辅助后续深入阅读。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <div class="faq-block" id="faq">
+    <h2>常见说明摘要</h2>
+    <div class="faq-item">
+      <strong>▸ 站点性质</strong>
+      <p><a href="https://cnweb-vsport.com" class="inline-link">v体育</a> 为非官方信息整合平台，内容源自公开资料并经过筛选整理，不保证绝对实时性。</p>
+    </div>
+    <div class="faq-item">
+      <strong>▸ 内容更新</strong>
+      <p>页面维护周期视赛事日程而定，常规情况下每周更新数次，重大赛事期间频率增加。历史数据保留可查。</p>
+    </div>
+    <div class="faq-item">
+      <strong>▸ 引用建议</strong>
+      <p>若引用本站数据，建议二次核对原始来源。本站不对因信息误差导致的间接影响承担责任。</p>
+    </div>
+    <div class="faq-item">
+      <strong>▸ 联系与反馈</strong>
+      <p>页面底部未设独立联系方式，浏览者可通过站点通用渠道提交建议，团队会在合理时间内处理。</p>
+    </div>
+  </div>
+
+  <!-- 附加提示行 (简洁) -->
+  <div style="background:#f9fafc; border-radius:18px; padding:16px 24px; margin-top:12px; border:1px solid #e4eaf0; font-size:0.92rem; color:#2f4153;">
+    ⚡ 提示：建议结合多源信息交叉验证，保持理性判断。
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>页面仅作介绍展示 · 内容持续完善</span>
+  </div>
+
+</div>
+</body>
+</html>
